@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acelera Digital Pro — Plataforma de Crescimento</title>
+<meta name="description" content="A plataforma mais avançada para criadores digitais crescerem no Instagram, TikTok e YouTube em tempo recorde.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #050508;
+  --bg2: #0c0c12;
+  --bg3: #13131c;
+  --surface: #1a1a26;
+  --surface2: #22223a;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --text: #f0f0f8;
+  --text2: rgba(240,240,248,0.6);
+  --text3: rgba(240,240,248,0.35);
+  --accent: #7c5cfc;
+  --accent2: #a855f7;
+  --pink: #ec4899;
+  --cyan: #06b6d4;
+  --green: #10b981;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --grad1: linear-gradient(135deg, #7c5cfc 0%, #ec4899 100%);
+  --grad2: linear-gradient(135deg, #06b6d4 0%, #7c5cfc 100%);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 2rem;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(5,5,8,0.85);
+  backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 0.5px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  background: var(--grad1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+  letter-spacing: -0.02em;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  display: flex; gap: 0.75rem; align-items: center;
+}
+.btn-ghost {
+  padding: 0.5rem 1.25rem;
+  background: transparent;
+  border: 0.5px solid var(--border2);
+  border-radius: 50px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-ghost:hover { background: var(--surface); border-color: var(--accent); }
+.btn-primary {
+  padding: 0.5rem 1.5rem;
+  background: var(--grad1);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: white;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.btn-primary:hover::after { opacity: 0.1; }
+.btn-primary:active { transform: scale(0.98); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 2rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  overflow: hidden;
+}
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.25;
+}
+.orb-1 { width: 600px; height: 600px; background: #7c5cfc; top: -200px; left: -150px; }
+.orb-2 { width: 500px; height: 500px; background: #ec4899; top: 50px; right: -200px; }
+.orb-3 { width: 400px; height: 400px; background: #06b6d4; bottom: -100px; left: 50%; transform: translateX(-50%); }
+.badge-pill {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.4rem 1.1rem;
+  background: rgba(124,92,252,0.15);
+  border: 0.5px solid rgba(124,92,252,0.4);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #a78bfa;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+.badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #7c5cfc;
+  animation: pulse-dot 2s ease infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.8); }
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+}
+.hero h1 .highlight {
+  background: var(--grad1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text2);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  font-weight: 300;
+}
+.hero-ctas {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+.btn-hero {
+  padding: 0.9rem 2.5rem;
+  background: var(--grad1);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 40px rgba(124,92,252,0.35);
+  position: relative;
+  overflow: hidden;
+}
+.btn-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: white; opacity: 0;
+  transition: opacity 0.2s;
+}
+.btn-hero:hover { transform: translateY(-2px); box-shadow: 0 8px 50px rgba(124,92,252,0.5); }
+.btn-hero:hover::after { opacity: 0.08; }
+.btn-outline-hero {
+  padding: 0.9rem 2.5rem;
+  background: transparent;
+  border: 0.5px solid var(--border2);
+  border-radius: 50px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-outline-hero:hover { background: var(--surface); border-color: var(--accent); }
+.stats-row {
+  display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap;
+}
+.stat-item { text-align: center; }
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  background: var(--grad1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text3);
+  margin-top: 0.3rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ── SCROLL TICKER ── */
+.ticker-wrap {
+  overflow: hidden;
+  border-top: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+  padding: 0.75rem 0;
+  background: var(--bg2);
+}
+.ticker {
+  display: flex;
+  gap: 0;
+  white-space: nowrap;
+  animation: ticker 30s linear infinite;
+}
+.ticker-item {
+  display: inline-flex; align-items: center; gap: 1rem;
+  padding: 0 2rem;
+  font-size: 0.85rem;
+  color: var(--text3);
+  font-weight: 500;
+}
+.ticker-item span {
+  color: var(--text2);
+}
+.ticker-sep { color: var(--accent); opacity: 0.4; }
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── SECTIONS ── */
+section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent2);
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.2rem;
+}
+.section-sub {
+  font-size: 1.1rem;
+  color: var(--text2);
+  max-width: 560px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ── FEATURES GRID ── */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5px;
+  background: var(--border);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 4rem;
+}
+.feature-card {
+  background: var(--bg2);
+  padding: 2.5rem;
+  transition: background 0.3s;
+  position: relative;
+}
+.feature-card:hover { background: var(--bg3); }
+.feature-icon {
+  width: 48px; height: 48px;
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+}
+.feature-icon.purple { background: rgba(124,92,252,0.15); border: 0.5px solid rgba(124,92,252,0.3); }
+.feature-icon.pink { background: rgba(236,72,153,0.12); border: 0.5px solid rgba(236,72,153,0.25); }
+.feature-icon.cyan { background: rgba(6,182,212,0.12); border: 0.5px solid rgba(6,182,212,0.25); }
+.feature-icon.green { background: rgba(16,185,129,0.12); border: 0.5px solid rgba(16,185,129,0.25); }
+.feature-icon.amber { background: rgba(245,158,11,0.12); border: 0.5px solid rgba(245,158,11,0.25); }
+.feature-icon.red { background: rgba(239,68,68,0.12); border: 0.5px solid rgba(239,68,68,0.25); }
+.feature-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+.feature-text {
+  font-size: 0.925rem;
+  color: var(--text2);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ── SOCIAL PROOF ── */
+.testimonials-section {
+  background: var(--bg2);
+  border-top: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+}
+.testimonials-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+.testimonial-card {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: all 0.3s;
+  position: relative;
+}
+.testimonial-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.testimonial-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+.testimonial-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--grad1);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: white;
+  flex-shrink: 0;
+}
+.testimonial-meta { flex: 1; margin-left: 0.75rem; }
+.testimonial-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.testimonial-handle {
+  font-size: 0.8rem;
+  color: var(--text3);
+}
+.stars { color: var(--amber); font-size: 0.8rem; }
+.testimonial-text {
+  font-size: 0.925rem;
+  color: var(--text2);
+  line-height: 1.7;
+  font-weight: 300;
+}
+.testimonial-result {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  margin-top: 1.25rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(16,185,129,0.1);
+  border: 0.5px solid rgba(16,185,129,0.25);
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #34d399;
+}
+
+/* ── PLATFORM SHOWCASE ── */
+.platform-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+.platform-left {}
+.platform-screen {
+  background: var(--bg2);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  position: relative;
+}
+.platform-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 0.5px solid var(--border);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.win-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+.win-red { background: #ef4444; }
+.win-amber { background: #f59e0b; }
+.win-green { background: #10b981; }
+.platform-url {
+  flex: 1;
+  height: 28px;
+  background: var(--bg3);
+  border-radius: 6px;
+  margin: 0 1rem;
+  display: flex; align-items: center;
+  padding: 0 0.75rem;
+  font-size: 0.75rem;
+  color: var(--text3);
+}
+.feed-post {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 0.5px solid var(--border);
+}
+.feed-post-header {
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+.feed-avatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--grad1);
+}
+.feed-name { font-size: 0.85rem; font-weight: 600; }
+.feed-time { font-size: 0.75rem; color: var(--text3); }
+.feed-image {
+  height: 160px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #1a1a3a 0%, #2d1b69 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.5rem;
+  margin-bottom: 0.85rem;
+}
+.feed-actions {
+  display: flex; gap: 1.25rem;
+}
+.feed-action {
+  font-size: 0.8rem;
+  color: var(--text3);
+  display: flex; align-items: center; gap: 0.3rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.feed-action:hover { color: var(--accent); }
+.feed-action.liked { color: var(--pink); }
+.platform-tab-bar {
+  display: flex; justify-content: space-around;
+  padding: 0.85rem;
+  background: var(--bg3);
+  border-top: 0.5px solid var(--border);
+}
+.tab-item {
+  display: flex; flex-direction: column; align-items: center; gap: 0.2rem;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+.tab-item.active { opacity: 1; }
+.tab-icon { font-size: 1.1rem; }
+.tab-label { font-size: 0.6rem; }
+
+/* ── MODULES ── */
+.modules-list {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.module-item {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  display: flex; align-items: center; gap: 1.25rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.module-item:hover {
+  border-color: var(--accent);
+  background: var(--surface2);
+  transform: translateX(4px);
+}
+.module-num {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text3);
+  min-width: 28px;
+}
+.module-info { flex: 1; }
+.module-title { font-weight: 600; font-size: 0.95rem; }
+.module-lessons { font-size: 0.8rem; color: var(--text3); margin-top: 0.2rem; }
+.module-badge {
+  padding: 0.25rem 0.65rem;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+.badge-free {
+  background: rgba(16,185,129,0.12);
+  border: 0.5px solid rgba(16,185,129,0.3);
+  color: #34d399;
+}
+.badge-pro {
+  background: rgba(124,92,252,0.12);
+  border: 0.5px solid rgba(124,92,252,0.3);
+  color: #a78bfa;
+}
+
+/* ── PRICING ── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+.price-card {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  position: relative;
+  transition: all 0.3s;
+}
+.price-card.featured {
+  background: linear-gradient(135deg, rgba(124,92,252,0.12) 0%, rgba(236,72,153,0.08) 100%);
+  border-color: rgba(124,92,252,0.4);
+  box-shadow: 0 0 60px rgba(124,92,252,0.15);
+}
+.price-card:hover { transform: translateY(-4px); }
+.price-tag {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--grad1);
+  padding: 0.25rem 1rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+  white-space: nowrap;
+}
+.price-plan {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.price-amount {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  margin: 1rem 0 0.25rem;
+}
+.price-amount sup {
+  font-size: 1.2rem;
+  font-weight: 600;
+  vertical-align: super;
+}
+.price-period { font-size: 0.85rem; color: var(--text3); margin-bottom: 1.75rem; }
+.price-features {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 0.7rem;
+  margin-bottom: 2rem;
+}
+.price-features li {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text2);
+}
+.check-icon {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: rgba(16,185,129,0.15);
+  border: 0.5px solid rgba(16,185,129,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem;
+  color: #34d399;
+  flex-shrink: 0;
+}
+.price-cta {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 0.5px solid var(--border2);
+  background: transparent;
+  color: var(--text);
+}
+.price-cta.grad {
+  background: var(--grad1);
+  border: none;
+  color: white;
+  box-shadow: 0 4px 20px rgba(124,92,252,0.3);
+}
+.price-cta.grad:hover { box-shadow: 0 8px 35px rgba(124,92,252,0.5); transform: translateY(-1px); }
+.price-cta:not(.grad):hover { background: var(--surface2); }
+
+/* ── FAQ ── */
+.faq-list {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.faq-item {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.faq-question {
+  padding: 1.25rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.faq-question:hover { background: var(--surface2); }
+.faq-arrow {
+  font-size: 0.7rem;
+  color: var(--text3);
+  transition: transform 0.3s;
+}
+.faq-item.open .faq-arrow { transform: rotate(180deg); color: var(--accent); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.faq-item.open .faq-answer { max-height: 200px; }
+.faq-answer-inner {
+  padding: 0 1.5rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--text2);
+  line-height: 1.7;
+  font-weight: 300;
+  border-top: 0.5px solid var(--border);
+  padding-top: 1rem;
+}
+
+/* ── CTA FINAL ── */
+.final-cta {
+  text-align: center;
+  padding: 8rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(124,92,252,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.final-cta h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+.final-cta p {
+  font-size: 1.1rem;
+  color: var(--text2);
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+.coupon-badge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: rgba(245,158,11,0.1);
+  border: 0.5px solid rgba(245,158,11,0.3);
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fbbf24;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 0.5px solid var(--border);
+  background: var(--bg2);
+  padding: 4rem 2rem 2rem;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.footer-brand p {
+  font-size: 0.875rem;
+  color: var(--text3);
+  margin-top: 1rem;
+  line-height: 1.7;
+  max-width: 280px;
+  font-weight: 300;
+}
+.footer-col h4 {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 1.25rem;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+.footer-col ul li a {
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 300;
+  transition: color 0.2s;
+}
+.footer-col ul li a:hover { color: var(--text); }
+.footer-bottom {
+  border-top: 0.5px solid var(--border);
+  padding-top: 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-copy {
+  font-size: 0.8rem;
+  color: var(--text3);
+}
+.footer-socials { display: flex; gap: 1rem; }
+.social-btn {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 0.5px solid var(--border);
+  background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.social-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(124,92,252,0.1); }
+
+/* ── MODAL (LOGIN) ── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(16px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+  padding: 1rem;
+}
+.modal-overlay.active { opacity: 1; pointer-events: all; }
+.modal-card {
+  background: var(--bg2);
+  border: 0.5px solid var(--border2);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 440px;
+  padding: 2.5rem;
+  transform: scale(0.95) translateY(10px);
+  transition: all 0.3s;
+}
+.modal-overlay.active .modal-card { transform: scale(1) translateY(0); }
+.modal-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.modal-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: var(--grad1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+.modal-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.35rem; }
+.modal-sub { font-size: 0.875rem; color: var(--text2); font-weight: 300; }
+.oauth-btn {
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--surface);
+  border: 0.5px solid var(--border2);
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 0.75rem;
+}
+.oauth-btn:hover { background: var(--surface2); border-color: var(--border); }
+.oauth-icon { font-size: 1rem; }
+.divider {
+  display: flex; align-items: center; gap: 1rem;
+  margin: 1.25rem 0;
+  font-size: 0.8rem;
+  color: var(--text3);
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; height: 0.5px;
+  background: var(--border);
+}
+.form-group { margin-bottom: 1rem; }
+.form-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text2);
+  margin-bottom: 0.5rem;
+}
+.form-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s;
+}
+.form-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(124,92,252,0.12); }
+.form-input::placeholder { color: var(--text3); }
+.mfa-hint {
+  font-size: 0.75rem;
+  color: var(--text3);
+  margin-top: 0.4rem;
+}
+.form-submit {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--grad1);
+  border: none;
+  border-radius: var(--radius);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 0.5rem;
+}
+.form-submit:hover { box-shadow: 0 4px 20px rgba(124,92,252,0.4); transform: translateY(-1px); }
+.modal-footer-text {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text3);
+  margin-top: 1.25rem;
+}
+.modal-footer-text a {
+  color: var(--accent2);
+  text-decoration: none;
+  font-weight: 500;
+}
+.modal-close {
+  position: absolute; top: 1.25rem; right: 1.25rem;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  color: var(--text2);
+  cursor: pointer;
+  font-size: 0.75rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.modal-card { position: relative; }
+.modal-close:hover { background: var(--surface2); color: var(--text); }
+.passkey-btn {
+  width: 100%;
+  padding: 0.85rem;
+  background: rgba(124,92,252,0.08);
+  border: 0.5px solid rgba(124,92,252,0.3);
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #a78bfa;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 0.75rem;
+}
+.passkey-btn:hover { background: rgba(124,92,252,0.15); border-color: rgba(124,92,252,0.5); }
+.security-bar {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.6rem 0.85rem;
+  background: rgba(16,185,129,0.06);
+  border: 0.5px solid rgba(16,185,129,0.2);
+  border-radius: var(--radius);
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: #34d399;
+}
+
+/* ── TOAST ── */
+.toast-container {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 3000;
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+.toast {
+  background: var(--bg2);
+  border: 0.5px solid var(--border2);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  max-width: 340px;
+  font-size: 0.875rem;
+  transform: translateX(120%);
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  display: flex; align-items: flex-start; gap: 0.75rem;
+}
+.toast.show { transform: translateX(0); }
+.toast-icon { font-size: 1rem; flex-shrink: 0; }
+.toast-body .toast-title { font-weight: 600; margin-bottom: 0.2rem; }
+.toast-body .toast-msg { color: var(--text2); font-weight: 300; }
+
+/* ── PROGRESS BAR ── */
+.progress-bar {
+  position: fixed; top: 0; left: 0; z-index: 2000;
+  height: 2px;
+  background: var(--grad1);
+  width: 0%;
+  transition: width 0.1s;
+  box-shadow: 0 0 8px rgba(124,92,252,0.8);
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: all 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── GRID SECTION ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.full-w { max-width: none; padding: 0; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 1rem; }
+  .nav-links { display: none; }
+  .hero { padding: 6rem 1.25rem 4rem; }
+  .stats-row { gap: 1.5rem; }
+  .platform-showcase { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="scrollToTop()">AD</div>
+  <ul class="nav-links">
+    <li><a href="#curso">Curso</a></li>
+    <li><a href="#plataforma">Plataforma</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#precos">Preços</a></li>
+  </ul>
+  <div class="nav-cta">
+    <button class="btn-ghost" onclick="openLogin()">Entrar</button>
+    <button class="btn-primary" onclick="openLogin()">Começar agora</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="badge-pill reveal">
+    <div class="badge-dot"></div>
+    Turma de Abril 2026 — Vagas abertas
+  </div>
+  <h1 class="reveal reveal-delay-1">
+    Domine o algoritmo.<br>
+    <span class="highlight">Cresça sem limites.</span>
+  </h1>
+  <p class="reveal reveal-delay-2">
+    A plataforma completa para criadores digitais que querem dominar Instagram, TikTok e YouTube — com método validado por +12.000 alunos.
+  </p>
+  <div class="hero-ctas reveal reveal-delay-3">
+    <button class="btn-hero" onclick="openLogin()">Quero acelerar agora →</button>
+    <button class="btn-outline-hero" onclick="scrollTo('#curso')">Ver módulos do curso</button>
+  </div>
+  <div class="stats-row reveal">
+    <div class="stat-item">
+      <div class="stat-number">12k+</div>
+      <div class="stat-label">Alunos formados</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">92%</div>
+      <div class="stat-label">Crescem em 30 dias</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">4.9★</div>
+      <div class="stat-label">Avaliação média</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">R$ 0</div>
+      <div class="stat-label">Custo pra começar</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <!-- duplicated for seamless loop -->
+    <div class="ticker-item"><span class="ticker-sep">◆</span> Instagram Reels <span>+24k em 14 dias</span></div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span> TikTok Growth <span>Do 0 ao viral</span></div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span> YouTube Monetização <span>Primeiros R$ 5k</span></div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span> Copy que converte <span>CTR +340%</span></div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span> Tráfego pago <span>ROI 8x</span></div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span> Email Marketing <span>50k lista</span></div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span> Personal Branding <span>Autoridade real</span></div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span> Instagram Reels <span>+24k em 14 dias</span></div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span> TikTok Growth <span>Do 0 ao viral</span></div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span> YouTube Monetização <span>Primeiros R$ 5k</span></div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span> Copy que converte <span>CTR +340%</span></div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span> Tráfego pago <span>ROI 8x</span></div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span> Email Marketing <span>50k lista</span></div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span> Personal Branding <span>Autoridade real</span></div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="plataforma">
+  <div class="reveal">
+    <div class="section-label">Por que somos diferentes</div>
+    <h2 class="section-title">Tudo que você precisa<br>numa plataforma só</h2>
+    <p class="section-sub">Do conteúdo ao algoritmo, do branding ao tráfego — a Acelera Digital reúne tudo em um ecossistema completo de crescimento.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-icon purple">🧠</div>
+      <h3 class="feature-title">IA de Crescimento</h3>
+      <p class="feature-text">Nossa IA analisa seu nicho, competidores e performance para gerar ideias de conteúdo e prever o que vai viralizar antes de acontecer.</p>
+    </div>
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-icon pink">📱</div>
+      <h3 class="feature-title">Feed Multi-Plataforma</h3>
+      <p class="feature-text">Monitore Instagram, TikTok e YouTube em um único painel. Veja métricas unificadas, responda comentários e programe posts — tudo em um lugar.</p>
+    </div>
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-icon cyan">📊</div>
+      <h3 class="feature-title">Analytics Avançado</h3>
+      <p class="feature-text">Dashboards com dados em tempo real de alcance, engajamento, vendas e crescimento de seguidores. Core Web Vitals do seu perfil na palma da mão.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon green">🎬</div>
+      <h3 class="feature-title">Biblioteca de Templates</h3>
+      <p class="feature-text">+500 templates de Reels, TikToks e Shorts que funcionam agora. Atualizados semanalmente com os formatos virais do momento.</p>
+    </div>
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-icon amber">💰</div>
+      <h3 class="feature-title">Monetização Integrada</h3>
+      <p class="feature-text">Venda produtos digitais, cursos e mentorias diretamente pelo seu perfil. Gateway de pagamento com suporte a Pix, cartão e parcelamento.</p>
+    </div>
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-icon red">🔐</div>
+      <h3 class="feature-title">Segurança Enterprise</h3>
+      <p class="feature-text">Autenticação com Passkeys (WebAuthn), MFA, OAuth 2.0 e conformidade total com OWASP Top 10. Seus dados protegidos em nível bancário.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM SHOWCASE -->
+<div style="background: var(--bg2); border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border);">
+  <section>
+    <div class="platform-showcase">
+      <div class="platform-left reveal">
+        <div class="section-label">Interface da Plataforma</div>
+        <h2 class="section-title">Feed social<br>do jeito certo</h2>
+        <p class="section-sub" style="margin-bottom: 2rem;">Experiência mobile-first inspirada nos padrões de design do Instagram e TikTok. Intuitivo, rápido e viciante.</p>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: var(--text2);">
+            <span style="color: var(--green);">✓</span> Rolagem infinita com lazy-loading
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: var(--text2);">
+            <span style="color: var(--green);">✓</span> Player de vídeo vertical nativo
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: var(--text2);">
+            <span style="color: var(--green);">✓</span> Microinterações com haptics
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: var(--text2);">
+            <span style="color: var(--green);">✓</span> Tema claro / escuro automático
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1" style="max-width: 320px; margin: 0 auto;">
+        <div class="platform-screen">
+          <div class="platform-header">
+            <div class="win-dot win-red"></div>
+            <div class="win-dot win-amber"></div>
+            <div class="win-dot win-green"></div>
+            <div class="platform-url">acelera.digital/feed</div>
+          </div>
+          <!-- Feed posts -->
+          <div class="feed-post">
+            <div class="feed-post-header">
+              <div class="feed-avatar"></div>
+              <div>
+                <div class="feed-name">Marina Souza</div>
+                <div class="feed-time">2 min atrás · 12.4k seguidores</div>
+              </div>
+            </div>
+            <div class="feed-image">🎬</div>
+            <div style="font-size: 0.82rem; color: var(--text2); margin-bottom: 0.75rem; font-weight: 300;">
+              Meu hook que gerou 2 milhões de views em 48h 🔥 Thread completa →
+            </div>
+            <div class="feed-actions">
+              <div class="feed-action liked">❤ 4.2k</div>
+              <div class="feed-action">💬 312</div>
+              <div class="feed-action">↗ Compartilhar</div>
+            </div>
+          </div>
+          <div class="feed-post" style="opacity: 0.7;">
+            <div class="feed-post-header">
+              <div class="feed-avatar" style="background: var(--grad2);"></div>
+              <div>
+                <div class="feed-name">Rafael Lima</div>
+                <div class="feed-time">15 min atrás · 8.1k seguidores</div>
+              </div>
+            </div>
+            <div class="feed-image" style="height: 100px;">📈</div>
+          </div>
+          <div class="platform-tab-bar">
+            <div class="tab-item active"><div class="tab-icon">🏠</div><div class="tab-label">Feed</div></div>
+            <div class="tab-item"><div class="tab-icon">🔍</div><div class="tab-label">Buscar</div></div>
+            <div class="tab-item"><div class="tab-icon">✚</div><div class="tab-label">Criar</div></div>
+            <div class="tab-item"><div class="tab-icon">🔔</div><div class="tab-label">Alertas</div></div>
+            <div class="tab-item"><div class="tab-icon">👤</div><div class="tab-label">Perfil</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- MODULES -->
+<section id="curso">
+  <div class="grid-2">
+    <div class="reveal">
+      <div class="section-label">Conteúdo do curso</div>
+      <h2 class="section-title">Método Crescimento<br>Relâmpago</h2>
+      <p class="section-sub">7 módulos que levam você do zero à autoridade digital, com aulas em vídeo, materiais práticos e comunidade ativa.</p>
+      <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text2);">
+          <span style="color: var(--amber);">◈</span> 87 aulas em vídeo
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text2);">
+          <span style="color: var(--amber);">◈</span> Acesso vitalício
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text2);">
+          <span style="color: var(--amber);">◈</span> Certificado digital
+        </div>
+      </div>
+    </div>
+    <div class="modules-list reveal reveal-delay-1">
+      <div class="module-item">
+        <div class="module-num">01</div>
+        <div class="module-info">
+          <div class="module-title">Fundamentos do Algoritmo</div>
+          <div class="module-lessons">12 aulas · 4h 30min</div>
+        </div>
+        <span class="module-badge badge-free">Grátis</span>
+      </div>
+      <div class="module-item">
+        <div class="module-num">02</div>
+        <div class="module-info">
+          <div class="module-title">Storytelling e Copy</div>
+          <div class="module-lessons">10 aulas · 3h 15min</div>
+        </div>
+        <span class="module-badge badge-pro">Pro</span>
+      </div>
+      <div class="module-item">
+        <div class="module-num">03</div>
+        <div class="module-info">
+          <div class="module-title">Reels e TikTok Virais</div>
+          <div class="module-lessons">15 aulas · 5h 20min</div>
+        </div>
+        <span class="module-badge badge-pro">Pro</span>
+      </div>
+      <div class="module-item">
+        <div class="module-num">04</div>
+        <div class="module-info">
+          <div class="module-title">YouTube e Vídeos Longos</div>
+          <div class="module-lessons">11 aulas · 4h 45min</div>
+        </div>
+        <span class="module-badge badge-pro">Pro</span>
+      </div>
+      <div class="module-item">
+        <div class="module-num">05</div>
+        <div class="module-info">
+          <div class="module-title">Tráfego Pago e Ads</div>
+          <div class="module-lessons">14 aulas · 6h 10min</div>
+        </div>
+        <span class="module-badge badge-pro">Pro</span>
+      </div>
+      <div class="module-item">
+        <div class="module-num">06</div>
+        <div class="module-info">
+          <div class="module-title">Monetização e Produtos Digitais</div>
+          <div class="module-lessons">13 aulas · 5h 30min</div>
+        </div>
+        <span class="module-badge badge-pro">Pro</span>
+      </div>
+      <div class="module-item">
+        <div class="module-num">07</div>
+        <div class="module-info">
+          <div class="module-title">Escala e Automação</div>
+          <div class="module-lessons">12 aulas · 4h 55min</div>
+        </div>
+        <span class="module-badge badge-pro">Pro</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials-section" id="depoimentos">
+  <div class="testimonials-inner">
+    <div class="reveal" style="text-align: center;">
+      <div class="section-label" style="text-align: center;">Depoimentos reais</div>
+      <h2 class="section-title">Quem aplicou, cresceu.</h2>
+      <p class="section-sub" style="margin: 0 auto;">Resultados verificados de alunos que seguiram o método Crescimento Relâmpago.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar">MS</div>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Marina Souza</div>
+            <div class="testimonial-handle">@marinasouza · São Paulo</div>
+          </div>
+          <div class="stars">★★★★★</div>
+        </div>
+        <p class="testimonial-text">"Saí de 800 para 12 mil seguidores em 3 semanas aplicando exatamente o que aprendi. O módulo de Reels mudou completamente minha abordagem de conteúdo."</p>
+        <div class="testimonial-result">↑ +11.200 seguidores em 21 dias</div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-avatar" style="background: var(--grad2);">RL</div>
+        <div class="testimonial-top">
+          <div class="testimonial-avatar" style="background: var(--grad2); position: absolute; top: 2rem; left: 2rem;">RL</div>
+          <div style="width: 44px; flex-shrink: 0;"></div>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Rafael Lima</div>
+            <div class="testimonial-handle">@rafaellima · Rio de Janeiro</div>
+          </div>
+          <div class="stars">★★★★★</div>
+        </div>
+        <p class="testimonial-text">"Primeira venda digital em 9 dias. Segui o método de copy do módulo 2 e meu funil converteu na primeira semana. Vale cada centavo e muito mais."</p>
+        <div class="testimonial-result">↑ R$ 4.700 em vendas no 1º mês</div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">JC</div>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Júlia Costa</div>
+            <div class="testimonial-handle">@juliacosta · Belo Horizonte</div>
+          </div>
+          <div class="stars">★★★★★</div>
+        </div>
+        <p class="testimonial-text">"Conteúdo direto ao ponto, sem enrolação. Em 30 dias consegui minha primeira parceria paga com uma marca e já tenho renda fixa pelo Instagram."</p>
+        <div class="testimonial-result">↑ Primeira parceria em 30 dias</div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, #10b981, #06b6d4);">PT</div>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Pedro Torres</div>
+            <div class="testimonial-handle">@pedrotorres · Curitiba</div>
+          </div>
+          <div class="stars">★★★★★</div>
+        </div>
+        <p class="testimonial-text">"Canal do YouTube saiu de 200 para 18k inscritos em 2 meses. O método de YouTube do módulo 4 é absurdamente eficiente. Já atingi 4.000 horas de exibição."</p>
+        <div class="testimonial-result">↑ 18k inscritos em 60 dias</div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, #a855f7, #ec4899);">CA</div>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Camila Alves</div>
+            <div class="testimonial-handle">@camilaalves · Florianópolis</div>
+          </div>
+          <div class="stars">★★★★★</div>
+        </div>
+        <p class="testimonial-text">"Nunca imaginei que aprender sobre algoritmo seria tão prático. Meu primeiro vídeo viral veio na semana 2. A comunidade da plataforma é incrível também."</p>
+        <div class="testimonial-result">↑ Primeiro viral com 2.1M views</div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, #ef4444, #f59e0b);">BM</div>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Bruno Melo</div>
+            <div class="testimonial-handle">@brunomelo · Recife</div>
+          </div>
+          <div class="stars">★★★★★</div>
+        </div>
+        <p class="testimonial-text">"Tráfego pago era meu maior medo. O módulo 5 me ensinou a criar campanhas com ROI positivo desde o início. Já escalo R$ 5k/mês em Meta Ads com lucro."</p>
+        <div class="testimonial-result">↑ ROI de 8x nas campanhas</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section id="precos">
+  <div class="reveal" style="text-align: center;">
+    <div class="section-label" style="text-align: center;">Planos e preços</div>
+    <h2 class="section-title">Invista no seu crescimento</h2>
+    <p class="section-sub" style="margin: 0 auto 1rem;">Sem mensalidade surpresa. Acesso completo, pague uma vez.</p>
+    <div class="coupon-badge">🎁 ACELERA10 — 10% OFF no checkout</div>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card reveal">
+      <div class="price-plan">Starter</div>
+      <p style="font-size: 0.875rem; color: var(--text3); font-weight: 300;">Para quem está começando</p>
+      <div class="price-amount"><sup>R$</sup>0</div>
+      <div class="price-period">Para sempre grátis</div>
+      <ul class="price-features">
+        <li><div class="check-icon">✓</div> Módulo 1 completo (grátis)</li>
+        <li><div class="check-icon">✓</div> Feed da comunidade</li>
+        <li><div class="check-icon">✓</div> 5 templates de conteúdo</li>
+        <li><div class="check-icon">✓</div> Analytics básico</li>
+      </ul>
+      <button class="price-cta" onclick="openLogin()">Começar grátis</button>
+    </div>
+    <div class="price-card featured reveal reveal-delay-1">
+      <div class="price-tag">Mais popular</div>
+      <div class="price-plan">Pro</div>
+      <p style="font-size: 0.875rem; color: var(--text3); font-weight: 300;">Para criadores sérios</p>
+      <div class="price-amount"><sup>R$</sup>97</div>
+      <div class="price-period">pagamento único · ou 3× R$ 33</div>
+      <ul class="price-features">
+        <li><div class="check-icon">✓</div> 7 módulos completos (87 aulas)</li>
+        <li><div class="check-icon">✓</div> +500 templates de Reels/TikTok</li>
+        <li><div class="check-icon">✓</div> IA de ideias de conteúdo</li>
+        <li><div class="check-icon">✓</div> Analytics avançado</li>
+        <li><div class="check-icon">✓</div> Comunidade exclusiva</li>
+        <li><div class="check-icon">✓</div> Certificado digital</li>
+        <li><div class="check-icon">✓</div> Atualizações vitalícias</li>
+      </ul>
+      <button class="price-cta grad" onclick="openLogin()">Garantir acesso Pro</button>
+    </div>
+    <div class="price-card reveal reveal-delay-2">
+      <div class="price-plan">Expert</div>
+      <p style="font-size: 0.875rem; color: var(--text3); font-weight: 300;">Para quem quer escalar rápido</p>
+      <div class="price-amount"><sup>R$</sup>297</div>
+      <div class="price-period">pagamento único · ou 6× R$ 52</div>
+      <ul class="price-features">
+        <li><div class="check-icon">✓</div> Tudo do plano Pro</li>
+        <li><div class="check-icon">✓</div> Mentoria em grupo mensal</li>
+        <li><div class="check-icon">✓</div> Revisão de perfil individual</li>
+        <li><div class="check-icon">✓</div> Acesso beta a novos módulos</li>
+        <li><div class="check-icon">✓</div> Suporte prioritário (24h)</li>
+      </ul>
+      <button class="price-cta" onclick="openLogin()">Quero ser Expert</button>
+    </div>
+  </div>
+  <p style="text-align: center; margin-top: 2rem; font-size: 0.875rem; color: var(--text3);">
+    🔒 Garantia incondicional de 7 dias. Se não gostar, devolvemos 100% do valor.
+  </p>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="grid-2" style="gap: 5rem;">
+    <div class="reveal">
+      <div class="section-label">Dúvidas frequentes</div>
+      <h2 class="section-title">Respondendo<br>suas perguntas</h2>
+      <p class="section-sub">Não encontrou o que procurava? Fale direto com nossa equipe pelo chat.</p>
+    </div>
+    <div class="faq-list reveal reveal-delay-1">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          Para quem é este curso?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Para qualquer pessoa que queira crescer nas redes sociais — seja para vender produtos, construir autoridade ou monetizar sua audiência. Não é necessária nenhuma experiência prévia com criação de conteúdo.</div>
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          Em quanto tempo vejo resultados?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">92% dos nossos alunos que seguem o método reportam crescimento visível em até 30 dias. Resultados variam de acordo com nicho, consistência e dedicação, mas o método é otimizado para resultados rápidos.</div>
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          O acesso realmente é vitalício?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Sim! Você paga uma vez e tem acesso para sempre, incluindo todas as atualizações futuras do curso. O algoritmo muda e nós atualizamos o conteúdo sem custo adicional.</div>
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          Como funciona a garantia de 7 dias?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Se por qualquer motivo você não ficar satisfeito nos primeiros 7 dias após a compra, basta nos enviar um email e devolvemos 100% do valor pago, sem burocracia e sem perguntas.</div>
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          Serve para qualquer nicho?
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Sim. O método é baseado nos princípios universais de como os algoritmos funcionam. Já tivemos alunos crescendo em nichos de fitness, finanças, moda, educação, gastronomia e muito mais.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <div class="final-cta-bg"></div>
+  <div class="coupon-badge reveal">🎁 Cupom ACELERA10 — 10% de desconto ativo</div>
+  <h2 class="reveal">Sua audiência está<br>esperando por você.</h2>
+  <p class="reveal">Comece hoje. O algoritmo favorece quem age primeiro.</p>
+  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;" class="reveal">
+    <button class="btn-hero" onclick="openLogin()">Garantir meu acesso agora →</button>
+  </div>
+  <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--text3);" class="reveal">
+    🔒 Pagamento 100% seguro · Garantia de 7 dias · Acesso imediato
+  </p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo" style="font-size: 1.5rem;">Acelera Digital</div>
+        <p>A plataforma mais completa para criadores digitais que querem crescer de verdade no Instagram, TikTok e YouTube.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Produto</h4>
+        <ul>
+          <li><a href="#curso">Sobre o curso</a></li>
+          <li><a href="#plataforma">Plataforma</a></li>
+          <li><a href="#precos">Preços</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Termos de uso</a></li>
+          <li><a href="#">Política de privacidade</a></li>
+          <li><a href="#">Política de cookies</a></li>
+          <li><a href="#">Garantia</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Suporte</h4>
+        <ul>
+          <li><a href="#">Central de ajuda</a></li>
+          <li><a href="#">Contato</a></li>
+          <li><a href="#">Comunidade</a></li>
+          <li><a href="#">Status</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Acelera Digital — CNPJ 00.000.000/0001-00</div>
+      <div class="footer-socials">
+        <a class="social-btn" href="#" title="Instagram">in</a>
+        <a class="social-btn" href="#" title="TikTok">tk</a>
+        <a class="social-btn" href="#" title="YouTube">yt</a>
+        <a class="social-btn" href="#" title="Twitter">tw</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="loginModal" onclick="closeLoginOnOverlay(event)">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeLogin()">✕</button>
+    <div class="modal-header">
+      <div class="modal-logo">AD</div>
+      <div class="modal-title">Bem-vindo de volta</div>
+      <div class="modal-sub">Entre na sua conta ou crie uma nova</div>
+    </div>
+    <button class="passkey-btn" onclick="simulatePasskey()">
+      🔑 Entrar com Passkey (WebAuthn)
+    </button>
+    <button class="oauth-btn" onclick="simulateOAuth('Google')">
+      <span class="oauth-icon">G</span> Continuar com Google
+    </button>
+    <button class="oauth-btn" onclick="simulateOAuth('GitHub')">
+      <span class="oauth-icon">⌥</span> Continuar com GitHub
+    </button>
+    <div class="divider">ou com e-mail</div>
+    <div class="form-group">
+      <label class="form-label">E-mail</label>
+      <input type="email" class="form-input" placeholder="seu@email.com" id="emailInput">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Senha</label>
+      <input type="password" class="form-input" placeholder="••••••••" id="passInput">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Código MFA (opcional)</label>
+      <input type="text" class="form-input" placeholder="000000" maxlength="6" id="mfaInput">
+      <div class="mfa-hint">💡 Proteja sua conta com autenticação em dois fatores</div>
+    </div>
+    <button class="form-submit" onclick="simulateLogin()">Entrar na plataforma →</button>
+    <div class="security-bar">
+      🔒 Conexão criptografada TLS 1.3 · Proteção OWASP Top 10
+    </div>
+    <div class="modal-footer-text">
+      Não tem conta? <a href="#" onclick="openLogin()">Criar conta grátis</a>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+// ── SCROLL PROGRESS ──
+window.addEventListener('scroll', () => {
+  const scroll = window.scrollY;
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scroll / height) * 100;
+  document.getElementById('progressBar').style.width = progress + '%';
+});
+
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── MODAL ──
+function openLogin() {
+  document.getElementById('loginModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLogin() {
+  document.getElementById('loginModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function closeLoginOnOverlay(e) {
+  if (e.target === e.currentTarget) closeLogin();
+}
+
+// ── TOAST ──
+function showToast(title, msg, icon = '✅') {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = `<span class="toast-icon">${icon}</span><div class="toast-body"><div class="toast-title">${title}</div><div class="toast-msg">${msg}</div></div>`;
+  container.appendChild(toast);
+  requestAnimationFrame(() => { requestAnimationFrame(() => toast.classList.add('show')); });
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 400);
+  }, 4000);
+}
+
+// ── SIMULATED ACTIONS ──
+function simulateOAuth(provider) {
+  closeLogin();
+  showToast(`Conectando ao ${provider}`, 'Redirecionando para autenticação OAuth 2.0...', '🔗');
+  setTimeout(() => showToast('Login realizado!', `Bem-vindo! Conta ${provider} conectada com sucesso.`, '🎉'), 1800);
+}
+function simulatePasskey() {
+  closeLogin();
+  showToast('Verificando Passkey', 'Aguardando autenticação biométrica WebAuthn...', '🔑');
+  setTimeout(() => showToast('Passkey verificada!', 'Identidade confirmada. Acesso liberado com segurança máxima.', '✅'), 2000);
+}
+function simulateLogin() {
+  const email = document.getElementById('emailInput').value;
+  if (!email || !email.includes('@')) {
+    showToast('Erro de validação', 'Por favor, insira um e-mail válido.', '⚠️');
+    return;
+  }
+  closeLogin();
+  showToast('Autenticando...', 'Verificando credenciais com segurança.', '🔐');
+  setTimeout(() => showToast('Bem-vindo à plataforma!', 'Login realizado com sucesso. Redirecionando...', '🚀'), 1500);
+}
+
+// ── FAQ ──
+function toggleFaq(item) {
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ── SCROLL TO ──
+function scrollTo(selector) {
+  document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
+}
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+// ── KEYBOARD ──
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLogin(); });
+
+// ── LIKE INTERACTION ──
+document.querySelectorAll('.feed-action').forEach(el => {
+  if (el.classList.contains('liked')) return;
+  el.addEventListener('click', () => {
+    el.classList.toggle('liked');
+    const icon = el.textContent.trim()[0];
+    if (el.classList.contains('liked')) el.style.color = 'var(--pink)';
+    else el.style.color = '';
+  });
+});
+
+// ── INITIAL TOAST ──
+setTimeout(() => {
+  showToast('🎉 Turma de Abril aberta!', 'Vagas limitadas — cupom ACELERA10 ativo.', '🎯');
+}, 2500);
+</script>
+</body>
+</html>
